@@ -1,0 +1,24 @@
+{
+  "name": "02.proyecto-integrador-etapa-4",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "```sh\r touch server.js && npm init -y && npm i express dotenv mongoose && npm i nodemon -D\r git init && touch .gitignore\r touch .env .env.example\r ```",
+  "dependencies": {
+    "@eslint/js": "^9.11.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.7.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.7"
+  }
+}
