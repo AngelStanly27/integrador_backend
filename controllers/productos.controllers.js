@@ -9,7 +9,7 @@ const getAll = async (req, res) => {
         console.log(productos)
 
     } catch (error) {
-        console.log('[getAll]', error)
+        throw new Error('Error en getAall');
     }
 
 }
@@ -21,7 +21,7 @@ const getOne = async(req, res) => {
         const producto = await modelos.obtenerUnProducto(id) 
         res.json(handleMongoId(producto))
     } catch (error) {
-        console.log('[getOne]', error)
+        throw new Error('Error en getOne');
     }
 
 }
@@ -35,7 +35,7 @@ const create = async (req, res) => {
         res.status(201).json(handleMongoId(productoCreado))
         // console.log(productoCreado)
     } catch (error) {
-        console.log('[create]', error)
+        throw new Error('Error en Create');
     }
 
 }
@@ -49,7 +49,7 @@ const update = async (req, res) => {
         res.json(handleMongoId(produtoActualizado))
 
     } catch (error) {
-        console.log('[update]', error)
+        throw new Error('Error en Update');
     }
 }
 
@@ -58,10 +58,10 @@ const remove = async (req, res) => {
     
     try {
         const productoBorrado = await modelos.deleteProducto(id)
-        console.log(productoBorrado)
+        // console.log(productoBorrado)
         res.json(handleMongoId(productoBorrado))
     } catch (error) {
-        console.log('[error]', error)
+        throw new Error('Error en productoBorrado');
     }
 
 }

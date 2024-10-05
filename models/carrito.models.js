@@ -15,7 +15,7 @@ const crearCarrito = async (carrito) => {
         return carritoGuardado
         
     } catch (error) {
-        console.log('[crearCarrito]: No se pudo crear...', error)
+        throw new Error('no se puede crear Carrito.model');
     }
 }
 

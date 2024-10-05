@@ -11,7 +11,7 @@ const obtenerTodos = async () => {
         //console.log(productos)
         return productos
     } catch (error) {
-        console.log('[obtenerTodos]', error)
+        throw new Error('Error en obtenerTodos');
     }
 
 
@@ -20,13 +20,11 @@ const obtenerTodos = async () => {
 const obtenerUnProducto = async (id) => {
 
     try {
-        // https://mongoosejs.com/docs/queries.html
-        //const producto = await ProductosModelo.find({ _id: id})
-        const producto = await ProductosModelo.findById(id)
-        console.log(producto)
+         const producto = await ProductosModelo.findById(id)
+        // console.log(producto)
         return producto
     } catch (error) {
-        console.log('[obtenerUnProducto]', error)
+        throw new Error('Error en obtener un Producto');
     }
 
 }
@@ -35,18 +33,14 @@ const crearProducto = async (producto) => {
 
     try {
 
-        // ? Primera forma
-        //const docMongooseProducto = new ProductosModelo(producto)
-        //const productoCreado = await docMongooseProducto.save() // Guardo en la DB
-        //console.log(productoCreado) // { _id, ...producto }
-        // ? Segunda forma
         const productoCreado = await ProductosModelo.create(producto)
         //console.log(productoCreado)
         return productoCreado       
         
     } catch (error) {
         //console.log('[crearProducto]', error)
-        console.log(error, ('no entro el producto')) // Lanzo el error hacía la función que este utilizando esta función (crearProducto)
+        throw new Error('Error en Producto.models');
+        // Lanzo el error hacía la función que este utilizando esta función (crearProducto)
     }
 
 
@@ -62,7 +56,8 @@ const updateProducto = async (id, productoPorEditado) => {
         
     } catch (error) {
         // console.log(error, ('no edito el producto'))
-        throw error
+        // throw error
+        throw new Error('Error en update producto');
     }
 
 }
@@ -77,7 +72,7 @@ const deleteProducto = async (id) => {
         return productoBorrado
 
     } catch (error) {
-        console.log('[deleteProducto]', error)
+        throw new Error('Error en Delete Producto');
     }
 
 }
